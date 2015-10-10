@@ -32,8 +32,8 @@
 #define PLAYBACK_PERIOD_COUNT 8
 #define PLAYBACK_SHORT_PERIOD_COUNT 2
 
-#define CAPTURE_PERIOD_SIZE   1056
-#define CAPTURE_PERIOD_COUNT  2
+#define CAPTURE_PERIOD_SIZE   1024
+#define CAPTURE_PERIOD_COUNT  4
 
 #define SHORT_PERIOD_SIZE 192
 
@@ -95,19 +95,6 @@ enum output_type {
     OUTPUT_LOW_LATENCY,   // low latency output stream
     OUTPUT_HDMI,
     OUTPUT_TOTAL
-};
-
-enum tty_modes {
-    TTY_MODE_OFF,
-    TTY_MODE_VCO,
-    TTY_MODE_HCO,
-    TTY_MODE_FULL
-};
-
-struct mixer_ctls
-{
-    struct mixer_ctl *mixinl_in1l_volume;
-    struct mixer_ctl *mixinl_in2l_volume;
 };
 
 struct route_setting
@@ -244,5 +231,21 @@ struct route_setting bt_disable[] = {
     { .ctl_name = "AIF2DAC2L Mixer AIF2 Switch", .intval = 0, },
     { .ctl_name = "AIF1ADC1R Mixer AIF2 Switch", .intval = 0, },
     { .ctl_name = "AIF1ADC1L Mixer AIF2 Switch", .intval = 0, },
+    { .ctl_name = NULL, },
+};
+
+struct route_setting noise_suppression[] = {
+    { .ctl_name = "Sub Mic Switch", .intval = 1, },
+    { .ctl_name = "IN1R Volume", .intval = 25, },
+    { .ctl_name = "MIXINR IN1R Switch", .intval = 1, },
+    { .ctl_name = "MIXINR IN1R Volume", .intval = 0, },
+    { .ctl_name = "AIF1ADCR Source", .intval = 1, },
+    { .ctl_name = NULL, },
+};
+
+struct route_setting noise_suppression_disable[] = {
+    { .ctl_name = "Sub Mic Switch", .intval = 0, },
+    { .ctl_name = "MIXINR IN1R Switch", .intval = 0, },
+    { .ctl_name = "MIXINR IN1R Volume", .intval = 0, },
     { .ctl_name = NULL, },
 };
