@@ -60,10 +60,10 @@
          config to 7. -->
     <integer name="config_deviceHardwareWakeKeys">64</integer>
     
-     <!-- Screen brightness when dozing. -->
+	<!-- Screen brightness when dozing. -->
     <integer name="config_screenBrightnessDoze">20</integer>
     
-      <!-- Use camera interface for camera. Must specify config_flashDevice and config_torchBrightness  -->
+	<!-- Use camera interface for camera. Must specify config_flashDevice and config_torchBrightness  -->
     <bool name="config_useCameraInterface">false</bool>
 
     <!-- Torch led brightness value for led on (1 - 255). Usable with config_useCameraInterface=true -->
